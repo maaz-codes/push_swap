@@ -43,10 +43,8 @@ void rotate(stack **top)
     stack *last;
 
     if (*top == NULL || (*top)->next == NULL) 
-    {
-        // List is empty or has only one node, no rotation needed
         return ;
-    }
+
     first = (*top);
     last = (*top);
 
@@ -65,5 +63,18 @@ void rotate(stack **top)
 
 void reverse_rotate(stack **top)
 {
-    
+    stack *last;
+    stack *second_last;
+
+    if (*top == NULL || (*top)->next == NULL) 
+        return ;
+    last = *top;
+    while (last->next != NULL)
+        last = last->next;
+    second_last = last->prev;
+    second_last->next = NULL;
+    last->prev = NULL;
+    last->next = (*top);
+    (*top)->prev = last;
+    (*top) = last;
 }

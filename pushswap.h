@@ -21,6 +21,7 @@ stack	*stack_init(int *numbers, int len);
 void	swap(stack **a);
 void    push(stack **a, stack **b);
 void    rotate(stack **top);
+void    reverse_rotate(stack **top);
 
 //instructions
 void	sa(stack **a);
@@ -31,6 +32,13 @@ void    pb(stack **b, stack **a);
 void    ra(stack **a);
 void    rb(stack **b);
 void    rr(stack **a, stack **b);
+void    rra(stack **a);
+void    rrb(stack **b);
+void    rrr(stack **a, stack **b);
+
+//libft
+char	**ft_split(const char *s, char c);
+int     ft_word_count(const char *s, char sep);
 
 //to remove
 void	print_stack(stack *a);

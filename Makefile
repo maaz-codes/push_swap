@@ -1,6 +1,6 @@
 NAME = pushswap.a
 
-SRCS = instruct.c instruct_utils.c stack_utils.c
+SRCS = instruct.c instruct_utils.c stack_utils.c libft.c
 
 OBJS = $(SRCS:.c=.o)
 
@@ -18,6 +18,7 @@ clean:
 	rm -rf $(OBJS)
 
 fclean: 
+	rm -rf $(OBJS)
 	rm -rf $(NAME)
 
 re: fclean all

@@ -26,16 +26,9 @@ void pb(stack **b, stack **a)
     push(b, a);
 }
 
-// void ra(stack **a)
-// {
-//     printf("Controller \n");
-//     // rotate(a);
-// }
-
 void ra(stack **a)
 {
     rotate(a);
-    printf("Controller %d\n", (*a)->content);
 }
 
 void rb(stack **b)
