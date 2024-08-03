@@ -1,6 +1,6 @@
 NAME = pushswap.a
 
-SRCS = instruct.c instruct_utils.c stack_utils.c libft.c
+SRCS = instruct.c instruct_utils.c stack_utils.c libft.c sorting_utils.c 
 
 OBJS = $(SRCS:.c=.o)
 
