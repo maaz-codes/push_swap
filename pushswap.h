@@ -8,6 +8,7 @@
 typedef struct doubly_list
 {
 	int					content;
+	int					index_to_top;
 	struct doubly_list	*prev;
 	struct doubly_list	*next;
 }						stack;
@@ -40,14 +41,18 @@ void					rrr(stack **a, stack **b);
 // libft
 char					**ft_split(const char *s, char c);
 int						ft_word_count(const char *s, char sep);
+int						ft_abs(int num);
 
 // sorting functions
-int						find_max(stack *a);
-int						find_min(stack *a);
+stack					*find_max_block(stack *a);
+stack					*find_min_block(stack *a);
 void					push_elements_to_b(stack **b, stack **a);
 void					tiny_sort(stack **a);
-int						target_element(int element, stack *a);
 void					final_sort(stack **a);
+stack					*target_block(int element, stack *s, char stacks);
+stack					*cheapest_block(stack *a, stack *b);
+int						index_to_top(int element, stack *s);
+int						push_cost(stack *a, stack *b, int element, int target);
 
 // to remove
 void					print_stack(stack *a);
