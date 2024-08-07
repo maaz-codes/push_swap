@@ -1,5 +1,12 @@
 #include "pushswap.h"
 
+int ft_abs(int num)
+{
+	if (num < 0)
+		num *= -1;
+	return (num);
+}
+
 static size_t ft_strlen(const char *s)
 {
     size_t len;
