@@ -4,6 +4,9 @@
 # include <limits.h>
 # include <stdio.h>
 # include <stdlib.h>
+# include <unistd.h>
+
+
 
 typedef struct doubly_list
 {
@@ -49,10 +52,11 @@ stack					*find_min_block(stack *a);
 void					push_elements_to_b(stack **b, stack **a);
 void					tiny_sort(stack **a);
 void					final_sort(stack **a);
-stack					*target_block(int element, stack *s, char stacks);
+stack					*target_block(stack *element, stack *s, char stacks);
 stack					*cheapest_block(stack *a, stack *b);
-int						index_to_top(int element, stack *s);
-int						push_cost(stack *a, stack *b, int element, int target);
+int						index_to_top(stack *element, stack *s);
+int						push_cost(stack *a, stack *b, stack *element, stack *target);
+void					push_cheapest_element(stack **a, stack **b);
 
 // to remove
 void					print_stack(stack *a);

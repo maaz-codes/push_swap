@@ -52,7 +52,7 @@ void tiny_sort(stack **a)
         sa(a);
 }
 
-static stack *target_block_for_a(int element, stack *a)
+static stack *target_block_for_a(stack *element, stack *a)
 {
 	long target_element;
 	stack *temp;
@@ -64,7 +64,7 @@ static stack *target_block_for_a(int element, stack *a)
 
 	while (a != NULL)
 	{
-		if (element > a->content && target_element < a->content)
+		if (element->content > a->content && target_element < a->content)
 		{
 			target_element = a->content;
 			target = a;
@@ -76,7 +76,7 @@ static stack *target_block_for_a(int element, stack *a)
 	return (target);
 }
 
-static stack *target_block_for_b(int element, stack *a)
+static stack *target_block_for_b(stack *element, stack *a)
 {
 	long target_element;
 	stack *temp;
@@ -88,7 +88,7 @@ static stack *target_block_for_b(int element, stack *a)
 
 	while (a != NULL)
 	{
-		if (element < a->content && target_element > a->content)
+		if (element->content < a->content && target_element > a->content)
 		{
 			target_element = a->content;
 			target = a;
@@ -100,7 +100,7 @@ static stack *target_block_for_b(int element, stack *a)
 	return (target);
 }
 
-stack *target_block(int element, stack *s, char stacks)
+stack *target_block(stack *element, stack *s, char stacks)
 {
 	stack *target;
 
@@ -139,7 +139,7 @@ void final_sort(stack **a)
             rra(a);
 }
 
-int index_to_top(int element, stack *s)
+int index_to_top(stack *element, stack *s)
 {
 	int index;
 	int mid_line;
@@ -154,7 +154,7 @@ int index_to_top(int element, stack *s)
 		mid_line = (len / 2) + 1;
 	while (s != NULL)
 	{
-		if (s->content == element)
+		if (s->content == element->content)
 			break ;
 		index++;
 		s = s->next;
@@ -167,10 +167,10 @@ int index_to_top(int element, stack *s)
 	return (index_to_top);
 }
 
-int push_cost(stack *a, stack *b, int element, int target)
+int push_cost(stack *a, stack *b, stack *element, stack *target)
 {
     int index_to_top_a = index_to_top(element, b);  
-    int index_to_top_b = index_to_top(target, a);
+    int index_to_top_b = index_to_top(target, a); 
     int push_price;
 
     if (index_to_top_a * index_to_top_b >= 0) 
@@ -191,12 +191,12 @@ stack *cheapest_block(stack *a, stack *b)
 	stack *cheapest_block;
 	stack *temp_b;
 
-	least_price = push_cost(a, b, b->content, target_block(b->content, a, 'b')->content);
+	least_price = push_cost(a, b, b, target_block(b, a, 'b'));
 	cheapest_block = b; // 1st node
 	temp_b = b;
 	while (b != NULL)
 	{
-		push_price = push_cost(a, temp_b, b->content, target_block(b->content, a, 'b')->content);
+		push_price = push_cost(a, temp_b, b, target_block(b, a, 'b'));
 		if (push_price < least_price)
 		{
 			cheapest_block = b;
