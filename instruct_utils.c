@@ -29,7 +29,7 @@ void push(stack **a, stack **b)
     temp_a = (*a);
     // stack b
     *b = (*b)->next;
-    (*b)->prev = NULL;
+    // (*b)->prev = NULL;
 
     // stack a
     (*a)->prev = temp_b;

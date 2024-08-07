@@ -87,7 +87,7 @@ void print_stack(stack *a)
 	while (block != NULL)
 	{
 		// printf("%p ", block->prev);
-		printf("%d ", block->content);
+		printf("%d \n", block->content);
 		// printf("%p ", block->next);
         // printf("\n");
 		block = block->next;

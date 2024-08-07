@@ -1,125 +1,43 @@
 #include "pushswap.h"
 
-// void push_cheapest_element(stack **a, stack **b, int cheapest_element, int target)
-// {
-// 	int operation_on_element;
-// 	int operation_on_target;
-
-// 	operation_on_element = index_to_top(cheapest_element, (*b)); // 1
-// 	operation_on_target = index_to_top(target, (*a)); // 2
-
-// 	if (operation_on_element * operation_on_target >= 0) // same signs
-// 	{
-// 		if (operation_on_element < 0) // both -ve
-// 			rotate_push(a, b, -1, -1);
-// 		else // both +ve
-// 		{
-// 			rotate_push(a, b, 1, 1);
-// 		}
-// 	}
-
-
-// }
-
-void rotate_both(int index_a, int index_b, stack **a, stack **b, int is_same)
-{
-	while (index_a != 0 || index_b != 0)
-	{
-		if (index_a * index_b >= 0)
-		{
-			if (index_a < 0) // both -ve
-			{
-				
-			}
-			else // both +ve
-			{
-
-			}
-		}
-		else 
-		{
-
-		}
-	}
-}
-
-void empty_stack_b(stack **a, stack **b)
-{
-	stack *cheapest;
-	stack *target;
-	int index_a;
-	int index_b;
-
-	cheapest = cheapest_block((*a), (*b)); // 1 (+1)
-	target = target_block(cheapest->content, (*a), 'b'); // 4 (-2)
-	index_a = index_to_top(cheapest->content, (*b));
-	index_b = index_to_top(target->content, (*a));
-
-	while (index_a != 0 && index_b != 0)
-	{
-		if (index_a * index_b >= 0 )
-			rotate_both(index_a, index_b, a, b, 1); // 1 for both are same signs
-		else
-			rotate_both(index_a, index_b, a, b, -1); // 0 both are different signs
-	}
-	pa(a, b);
-}
+int total_moves = 0;
 
 void sorting(stack **a, stack **b)
 {
 	push_elements_to_b(b, a);  // step : 1
 	tiny_sort(a);  // step : 2
-
-	while (stack_len(*b) != 0)
+	while (stack_len(*b) != 0) // step : 3
 	{
-		empty_stack_b(a, b);
+		push_cheapest_element(a, b);
 	}
-
+	final_sort(a);
 }
 
 int	main(void)
 {
     stack *a;
 	stack *b;
-	int numbers[] = {8, 2, 4, 6};
-	int nums[] = {3, 1, 5, 7};
-	int index;
-	int push_price;
+	int arr[100] = {37, 85, 2, 61, 28, 49, 97, 23, 59, 9, 78, 90, 8, 42, 19, 68, 72, 53, 15, 26, 100, 6, 34, 75, 31, 50, 40, 95, 11, 64, 22, 81, 30, 14, 67, 86, 1, 48, 17, 63, 71, 25, 93, 36, 84, 5, 20, 57, 94, 32, 77, 3, 41, 98, 54, 12, 47, 92, 7, 66, 29, 60, 10, 76, 18, 55, 38, 87, 4, 27, 88, 45, 91, 13, 44, 52, 99, 33, 74, 21, 43, 56, 69, 16, 80, 35, 65, 58, 70, 46, 79, 24, 62, 39, 73, 82, 83, 89, 51, 96};
+
+	// int arr[10] = {3, 6, 2, 1, 5};
+	// int arr2[] = {-1};
 		
-	a = stack_init(numbers, 4);
-	b = stack_init(nums, 4);
+	// a = stack_init(arr, 500);
+	// int num[] = {6, 8, 7, 4, 3, 2, 1};
+	a = stack_init(arr, 100);
+	// b = stack_init(arr2, 1);
+    b = malloc(sizeof(stack));
+    printf("COntent = %d\n", b->content);
+
+
+	// print_stack(b);
+
+	sorting(&a, &b);
 	print_stack(a);
-	print_stack(b);
 
-	// push_elements_to_b(&b, &a);
-	// tiny_sort(&a);
-	// final_sort(&b);
-	// printf("Target = %d \n", target_element(7, a));
-
-	// index = index_to_top(6, a);
-	// printf("Index to top = %d\n", index);
-
-	// int element = 5;
-	// push_price = push_cost(a, b, element, target_element(element, a));
-	// printf("Push_price = %d\n", push_price);
-
-	stack *cheap_element = cheapest_block(a, b);
-	printf("Cheapest Element = %d \n", cheap_element->content);
-	// int is_sorted = 0;
-	// if (!is_sorted)
-	// {
-	// 	if (stack_len(a) == 2)
-	// 		sa(&a);
-	// 	else if (stack_len(a) == 3)
-	// 		tiny_sort(&a);
-	// 	else
-	// 		sorting(&a, &b);		
-	// }
-
-	// emptying_stack_b(&a, &b, cheapest_element(a, b));
-
-	print_stack(a);
-	print_stack(b);   
+	// print_stack(a);
+	// printf("Moves = %d\n", total_moves);
+	// print_stack(b);   
 
 
 ///////////  INSTRUCTIONS  ////////////

@@ -1,6 +1,6 @@
-NAME = pushswap.a
+NAME = push_swap
 
-SRCS = instruct.c instruct_utils.c stack_utils.c libft.c sorting_utils.c 
+SRCS = main.c instruct.c instruct_utils.c stack_utils.c libft.c sorting_utils.c push_cheapest_element.c
 
 OBJS = $(SRCS:.c=.o)
 
@@ -9,10 +9,10 @@ CFLAGS = -Wall -Wextra -Werror
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	ar -rcs $(NAME) $(OBJS)
+	cc $(CFLAGS) $(OBJS) -o $(NAME)
 
-%.o:%.c
-	cc $(CFLAGS) -c $< -o $@
+# %.o:%.c
+# 	 $(CFLAGS)  -c $< -o $@
 
 clean: 
 	rm -rf $(OBJS)
