@@ -12,7 +12,6 @@ typedef struct doubly_list
 {
 	int					content;
 	int					index_to_top;
-	struct doubly_list	*prev;
 	struct doubly_list	*next;
 }						stack;
 
