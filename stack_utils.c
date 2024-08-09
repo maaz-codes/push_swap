@@ -8,9 +8,8 @@ stack *stack_new(int number)
     if (!block)
         return (NULL);
     block->content = number;
-	block->prev = NULL;
+    block->index_to_top = 0;
     block->next = NULL;
-
     return (block);
 }
 
@@ -19,7 +18,7 @@ stack *last_block(stack *a)
     stack *block;
 
     block = a;
-    if (block == NULL)
+    if (!block)
         return (NULL);
     while (block->next != NULL)
         block = block->next;
@@ -41,7 +40,6 @@ void stack_add(stack **a, stack *new_block)
 	else
 	{
 		block = last_block(*a);
-		new_block->prev = block;
 		block->next = new_block;
 	}
 }
@@ -86,10 +84,7 @@ void print_stack(stack *a)
 	block = a;
 	while (block != NULL)
 	{
-		// printf("%p ", block->prev);
 		printf("%d \n", block->content);
-		// printf("%p ", block->next);
-        // printf("\n");
 		block = block->next;
 	}
 	printf("\n");
@@ -97,8 +92,7 @@ void print_stack(stack *a)
 
 void del_block(stack *a)
 {
-	a->prev = NULL;
-	a->prev = NULL;
+	a->next = NULL;
     free(a);
 }
 

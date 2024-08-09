@@ -1,7 +1,5 @@
 #include "pushswap.h"
 
-extern int total_moves;
-
 void sa(stack **a)
 {
     swap(a);
@@ -25,32 +23,24 @@ void pa(stack **a, stack **b)
 {
     push(a, b);
     write(1, "pa\n", 3);
-    total_moves++;
-
 }
 
 void pb(stack **b, stack **a)
 {
     push(b, a);
     write(1, "pb\n", 3);
-    total_moves++;
-
 }
 
 void ra(stack **a)
 {
     rotate(a);
     write(1, "ra\n", 3);
-    total_moves++;
-
 }
 
 void rb(stack **b)
 {
     rotate(b);
     write(1, "rb\n", 3);
-    total_moves++;
-
 }
 
 void rr(stack **a, stack **b)
@@ -58,15 +48,12 @@ void rr(stack **a, stack **b)
     rotate(a);
     rotate(b);
     write(1, "rr\n", 3);
-    total_moves++;
-
 }
 
 void rra(stack **a)
 {
     reverse_rotate(a);
     write(1, "rra\n", 4);
-    total_moves++;
 }
 void rrb(stack **b)
 {
