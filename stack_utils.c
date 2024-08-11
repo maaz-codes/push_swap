@@ -59,19 +59,24 @@ int stack_len(stack *a)
     return (len);
 }
 
-stack *stack_init(int *numbers, int len)
+char *stack_init(stack **a, char **strings, int len)
 {
-    stack *a;
-    int i;
+	int i;
+	long number;
 
-    i = 0;
-    a = NULL;
-    while (i < len)
+	i = 0;
+	number = 0;
+	
+	while (i < len)
     {
-	    stack_add(&a, stack_new(numbers[i]));
+		if (!ft_atol_modified(strings[i], &number))
+			return (NULL);
+		if (!repetition_error(a, number))
+			return (NULL);
+	    stack_add(a, stack_new(number));
         i++;
     }
-    return (a);
+    return ("Initialised");
 }
 
 
@@ -84,10 +89,10 @@ void print_stack(stack *a)
 	block = a;
 	while (block != NULL)
 	{
-		printf("%d \n", block->content);
+		printf("%d ", block->content);
 		block = block->next;
 	}
-	printf("\n");
+    printf("\n");
 }
 
 void del_block(stack *a)
