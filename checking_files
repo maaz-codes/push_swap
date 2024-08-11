@@ -1,0 +1,9 @@
+instruct_utils.c        = 4 functions   | perfect
+libft.c                 = 7 fucntions   | split them in split-file & small-fucn-file | okay now
+push_cheapest_element   = 8 functions   | split them into 2 | okay now 
+main.c                  = 2 functions   | all good
+stack_utils.c           = 4 functions   | for now it's okay, will be adding more to it for cleaning | added other function
+errors.c                = 2 functions   | all good
+
+instruct.c              = 11 functions  | bad 
+sorting_utils.c         = 13 functions  | split them into 3
