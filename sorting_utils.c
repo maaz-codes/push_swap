@@ -32,24 +32,29 @@ stack *find_min_block(stack *a)
 
 void push_elements_to_b(stack **b, stack **a) // only takes a stack with elements more than 3
 {
-    while (stack_len(*a) != 3)
+    while (stack_len(*a) > 3)
         pb(b, a);
 }
 
 void tiny_sort(stack **a)
 {
-    stack *block;
     int max;
 
-    block = (*a);
-    max = find_max_block(block)->content;
-    
-    if ((*a)->content == max)
-        ra(a);
-    if ((*a)->next->content == max)
-        rra(a);
-    if ((*a)->content > (*a)->next->content)
-        sa(a);
+	if (stack_len(*a) == 2)
+	{
+		if ((*a)->content > (*a)->next->content)
+			sa(a);
+	}
+	else
+	{
+		max = find_max_block(*a)->content;
+		if ((*a)->content == max)
+			ra(a);
+		if ((*a)->next->content == max)
+			rra(a);
+		if ((*a)->content > (*a)->next->content)
+			sa(a);
+	}
 }
 
 static stack *target_block_for_a(stack *element, stack *a)
@@ -205,4 +210,31 @@ stack *cheapest_block(stack *a, stack *b)
 		b = b->next;
 	}
 	return (cheapest_block);
+}
+
+
+void sorting(stack **a, stack **b)
+{
+	push_elements_to_b(b, a);  // step : 1
+	tiny_sort(a);  // step : 2
+	while (stack_len(*b) != 0) // step : 3
+	{
+		push_cheapest_element(a, b);
+	}
+	final_sort(a);
+}
+
+int is_sorted(stack *a)
+{
+	stack *block;
+
+	block = a;
+	while (block)
+	{
+		if (block->next)
+			if (block->content > block->next->content)
+				return (0);
+		block = block->next;
+	}
+	return (1);
 }
