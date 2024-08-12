@@ -1,14 +1,4 @@
-#include "pushswap.h"
-
-static int ft_strlen(const char *s)
-{
-    int len;
-
-    len = 0;
-    while (s[len])
-        len++;
-    return (len);
-}
+#include "../pushswap.h"
 
 int ft_word_count(const char *s, char sep)
 {
