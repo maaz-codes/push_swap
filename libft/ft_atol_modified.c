@@ -1,6 +1,6 @@
 #include "../pushswap.h"
 
-char *ft_atol_modified(char *str, long *number)
+char *ft_atol_modified(char *str, long long *number)
 {
     int i;
     int sign;
@@ -16,13 +16,15 @@ char *ft_atol_modified(char *str, long *number)
     while (str[i] != '\0')
     {
         if (str[i] >= '0' && str[i] <= '9')
+        {
             *number = (*number * 10) + (str[i] - '0');
+            if (*number > INT_MAX)
+                return (NULL);
+        }
         else
             return (NULL);
         i++;
     }
-    if (*number > INT_MAX)
-        return (NULL);
     *number *= sign;
     return ("Success");
 }
