@@ -17,7 +17,16 @@ typedef struct doubly_list
 	struct doubly_list	*next;
 }						stack;
 
-// stack_utils
+// libft
+int						ft_abs(int num);
+int						ft_strlen(const char *s);
+char					**ft_split(const char *s, char c);
+int						ft_word_count(const char *s, char sep);
+char					*ft_atol_modified(char *str, long long *number);
+char					*ft_strjoin(char const *s1, char const *s2);
+char					*ft_strdup(const char *s1);
+
+// stack_utils_
 stack					*stack_new(int number);
 stack					*last_block(stack *a);
 void					stack_add(stack **a, stack *new_block);
@@ -42,12 +51,6 @@ void					rr(stack **a, stack **b);
 void					rra(stack **a);
 void					rrb(stack **b);
 void					rrr(stack **a, stack **b);
-
-// libft
-char					**ft_split(const char *s, char c);
-int						ft_word_count(const char *s, char sep);
-int						ft_abs(int num);
-char					*ft_atol_modified(char *str, long *number);
 
 // sorting functions
 stack					*find_max_block(stack *a);

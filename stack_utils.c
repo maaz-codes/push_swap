@@ -62,7 +62,7 @@ int stack_len(stack *a)
 char *stack_init(stack **a, char **strings, int len)
 {
 	int i;
-	long number;
+	long long number;
 
 	i = 0;
 	number = 0;
@@ -79,6 +79,17 @@ char *stack_init(stack **a, char **strings, int len)
     return ("Initialised");
 }
 
+void stack_clear(stack **a)
+{
+    stack *block;
+
+    while (*a != NULL)
+    {
+        block = (*a);
+        *a = (*a)->next;
+        free(block); 
+    }
+}
 
 //to remove ---------------------------------------------------
 
@@ -93,22 +104,4 @@ void print_stack(stack *a)
 		block = block->next;
 	}
     printf("\n");
-}
-
-void del_block(stack *a)
-{
-	a->next = NULL;
-    free(a);
-}
-
-void stack_clear(stack **a)
-{
-    stack *block;
-    while (*a != NULL)
-    {
-        block = (*a)->next;
-        del_block(*a);
-        *a = block; 
-    }
-    *a = NULL;
 }
