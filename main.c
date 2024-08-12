@@ -68,7 +68,7 @@ int	main(int argc, char *argv[])
 	if (argc > 1)
 	{	
 		if (!parsing(&a, argc, argv))
-			return (error_msg());
+			return (error_msg(&a, &b));
 		if (!is_sorted(a))
 			sorting(&a, &b);
 		else

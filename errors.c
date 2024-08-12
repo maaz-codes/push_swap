@@ -1,7 +1,9 @@
 #include "pushswap.h"
 
-int error_msg()
+int error_msg(stack **a, stack **b)
 {
+	stack_clear(a);
+	stack_clear(b);
 	write (1, "Error\n", 6);
 	return 0;
 }
