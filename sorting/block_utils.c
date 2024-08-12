@@ -1,14 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   block_utils.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: maakhan <maakhan@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/12 15:30:58 by maakhan           #+#    #+#             */
+/*   Updated: 2024/08/12 15:31:07 by maakhan          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../pushswap.h"
 
-stack *cheapest_block(stack *a, stack *b)
+stack	*cheapest_block(stack *a, stack *b)
 {
-	int least_price;
-	int push_price;
-	stack *cheapest_block;
-	stack *temp_b;
+	int		least_price;
+	int		push_price;
+	stack	*cheapest_block;
+	stack	*temp_b;
 
 	least_price = push_cost(a, b, b, target_block(b, a, 'b'));
-	cheapest_block = b; // 1st node
+	cheapest_block = b;
 	temp_b = b;
 	while (b != NULL)
 	{
@@ -23,32 +35,30 @@ stack *cheapest_block(stack *a, stack *b)
 	return (cheapest_block);
 }
 
-stack *find_max_block(stack *a)
+stack	*find_max_block(stack *a)
 {
-    stack *max;
+	stack	*max;
 
-    max = a;
-
-    while (a != NULL)
-    {
-        if (a->content > max->content)
-            max = a;
-        a = a->next;
-    }
-    return (max);
+	max = a;
+	while (a != NULL)
+	{
+		if (a->content > max->content)
+			max = a;
+		a = a->next;
+	}
+	return (max);
 }
 
-stack *find_min_block(stack *a)
+stack	*find_min_block(stack *a)
 {
-    stack *min;
+	stack	*min;
 
-    min = a;
-
-    while (a != NULL)
-    {
-        if (a->content < min->content)
-            min = a;
-        a = a->next;
-    }
-    return (min);
+	min = a;
+	while (a != NULL)
+	{
+		if (a->content < min->content)
+			min = a;
+		a = a->next;
+	}
+	return (min);
 }

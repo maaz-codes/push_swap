@@ -1,22 +1,34 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   instructs_for_both.c                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: maakhan <maakhan@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/12 15:28:55 by maakhan           #+#    #+#             */
+/*   Updated: 2024/08/12 15:28:59 by maakhan          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../pushswap.h"
 
-void ss(stack **a, stack **b)
+void	ss(stack **a, stack **b)
 {
-    swap(a);
-    swap(b);
-    write(1, "ss\n", 3);
+	swap(a);
+	swap(b);
+	write(1, "ss\n", 3);
 }
 
-void rr(stack **a, stack **b)
+void	rr(stack **a, stack **b)
 {
-    rotate(a);
-    rotate(b);
-    write(1, "rr\n", 3);
+	rotate(a);
+	rotate(b);
+	write(1, "rr\n", 3);
 }
 
-void rrr(stack **a, stack **b)
+void	rrr(stack **a, stack **b)
 {
-    reverse_rotate(a);
-    reverse_rotate(b);
-    write(1, "rrr\n", 4);
+	reverse_rotate(a);
+	reverse_rotate(b);
+	write(1, "rrr\n", 4);
 }
