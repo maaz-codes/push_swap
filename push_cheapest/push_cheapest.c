@@ -1,4 +1,4 @@
-#include "pushswap.h"
+#include "../pushswap.h"
 
 void rotate_ab(stack **a, stack **b, stack *cheapest, stack *target)
 {
