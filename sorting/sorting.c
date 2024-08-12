@@ -45,12 +45,13 @@ void tiny_sort(stack **a)
 void sorting(stack **a, stack **b)
 {
 	push_elements_to_b(b, a);  // step : 1
-	tiny_sort(a);  // step : 2
-	while (stack_len(*b) != 0) // step : 3
+	if (stack_len(*a) >= 2)
 	{
-		push_cheapest_element(a, b);
+		tiny_sort(a);  // step : 2
+		while (stack_len(*b) != 0) // step : 3
+			push_cheapest_element(a, b);
+		final_sort(a);
 	}
-	final_sort(a);
 }
 
 void final_sort(stack **a)
