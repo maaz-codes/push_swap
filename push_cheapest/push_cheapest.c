@@ -6,20 +6,21 @@
 /*   By: maakhan <maakhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 15:30:38 by maakhan           #+#    #+#             */
-/*   Updated: 2024/08/12 15:30:53 by maakhan          ###   ########.fr       */
+/*   Updated: 2024/08/12 17:00:24 by maakhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../pushswap.h"
 
-void	rotate_ab(stack **a, stack **b, stack *cheapest, stack *target)
+void	rotate_ab(t_stack **a, t_stack **b, t_stack *cheapest, t_stack *target)
 {
 	rr(a, b);
 	cheapest->index_to_top--;
 	target->index_to_top--;
 }
 
-void	elements_to_top(stack *cheapest, stack *target, stack **a, stack **b)
+void	elements_to_top(t_stack *cheapest, t_stack *target, t_stack **a,
+		t_stack **b)
 {
 	if (cheapest->index_to_top > 0 && target->index_to_top > 0)
 		rotate_ab(a, b, cheapest, target);
@@ -38,10 +39,10 @@ void	elements_to_top(stack *cheapest, stack *target, stack **a, stack **b)
 	}
 }
 
-void	push_cheapest_element(stack **a, stack **b)
+void	push_cheapest_element(t_stack **a, t_stack **b)
 {
-	stack	*cheapest;
-	stack	*target;
+	t_stack	*cheapest;
+	t_stack	*target;
 
 	cheapest = cheapest_block((*a), (*b));
 	target = target_block(cheapest, (*a), 'b');

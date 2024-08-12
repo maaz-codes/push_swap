@@ -6,13 +6,13 @@
 /*   By: maakhan <maakhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 15:31:11 by maakhan           #+#    #+#             */
-/*   Updated: 2024/08/12 15:31:50 by maakhan          ###   ########.fr       */
+/*   Updated: 2024/08/12 16:59:56 by maakhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../pushswap.h"
 
-int	index_to_top(stack *element, stack *s)
+int	index_to_top(t_stack *element, t_stack *s)
 {
 	int	index;
 	int	mid_line;
@@ -20,7 +20,7 @@ int	index_to_top(stack *element, stack *s)
 	int	index_to_top;
 
 	index = 0;
-	len = stack_len(s);
+	len = t_stack_len(s);
 	if (len % 2 == 0)
 		mid_line = len / 2;
 	else
@@ -40,7 +40,7 @@ int	index_to_top(stack *element, stack *s)
 	return (index_to_top);
 }
 
-int	push_cost(stack *a, stack *b, stack *element, stack *target)
+int	push_cost(t_stack *a, t_stack *b, t_stack *element, t_stack *target)
 {
 	int	index_to_top_a;
 	int	index_to_top_b;

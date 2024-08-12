@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   pushswap.h                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: maakhan <maakhan@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/12 16:56:01 by maakhan           #+#    #+#             */
+/*   Updated: 2024/08/12 17:04:17 by maakhan          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSHSWAP_H
 # define PUSHSWAP_H
 
@@ -5,83 +17,83 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <limits.h>
-# include <unistd.h>
 
-
-
-typedef struct doubly_list
+typedef struct t_list
 {
-	int					content;
-	int					index_to_top;
-	struct doubly_list	*next;
-}						stack;
+	int				content;
+	int				index_to_top;
+	struct t_list	*next;
+}					t_stack;
 
 // libft
-int						ft_abs(int num);
-int						ft_strlen(const char *s);
-char					**ft_split(const char *s, char c);
-int						ft_word_count(const char *s, char sep);
-char					*ft_atol_modified(char *str, long long *number);
-char					*ft_strjoin(char const *s1, char const *s2);
-char					*ft_strdup(const char *s1);
+int					ft_abs(int num);
+int					ft_strlen(const char *s);
+char				**ft_split(const char *s, char c);
+int					ft_word_count(const char *s, char sep);
+char				*ft_atol_modified(char *str, long long *number);
+char				*ft_strjoin(char const *s1, char const *s2);
+char				*ft_strdup(const char *s1);
+char				*ft_strtrim(char const *s1, char const *set);
 
-// stack_utils_
-stack					*stack_new(int number);
-stack					*last_block(stack *a);
-void					stack_add(stack **a, stack *new_block);
-int						stack_len(stack *a);
-char					*stack_init(stack **a, char **strings, int len);
+// t_stack_utils_
+t_stack				*t_stack_new(int number);
+t_stack				*last_block(t_stack *a);
+void				t_stack_add(t_stack **a, t_stack *new_block);
+int					t_stack_len(t_stack *a);
+char				*t_stack_init(t_stack **a, char **strings, int len);
 
 // instruct utils
-void					swap(stack **a);
-void					push(stack **a, stack **b);
-void					rotate(stack **top);
-void					reverse_rotate(stack **top);
+void				swap(t_stack **a);
+void				push(t_stack **a, t_stack **b);
+void				rotate(t_stack **top);
+void				reverse_rotate(t_stack **top);
 
 // instructions
-void					sa(stack **a);
-void					sb(stack **b);
-void					ss(stack **a, stack **b);
-void					pa(stack **a, stack **b);
-void					pb(stack **b, stack **a);
-void					ra(stack **a);
-void					rb(stack **b);
-void					rr(stack **a, stack **b);
-void					rra(stack **a);
-void					rrb(stack **b);
-void					rrr(stack **a, stack **b);
+void				sa(t_stack **a);
+void				sb(t_stack **b);
+void				ss(t_stack **a, t_stack **b);
+void				pa(t_stack **a, t_stack **b);
+void				pb(t_stack **b, t_stack **a);
+void				ra(t_stack **a);
+void				rb(t_stack **b);
+void				rr(t_stack **a, t_stack **b);
+void				rra(t_stack **a);
+void				rrb(t_stack **b);
+void				rrr(t_stack **a, t_stack **b);
 
 // sorting functions
-stack					*find_max_block(stack *a);
-stack					*find_min_block(stack *a);
-void					push_elements_to_b(stack **b, stack **a);
-void					tiny_sort(stack **a);
-void					final_sort(stack **a);
-stack					*target_block(stack *element, stack *s, char stacks);
-stack					*cheapest_block(stack *a, stack *b);
-int						index_to_top(stack *element, stack *s);
-int						push_cost(stack *a, stack *b, stack *element, stack *target);
-void					sorting(stack **a, stack **b);
-int						is_sorted(stack *a);
+t_stack				*find_max_block(t_stack *a);
+t_stack				*find_min_block(t_stack *a);
+void				push_elements_to_b(t_stack **b, t_stack **a);
+void				tiny_sort(t_stack **a);
+void				final_sort(t_stack **a);
+t_stack				*target_block(t_stack *element, t_stack *s, char t_stacks);
+t_stack				*cheapest_block(t_stack *a, t_stack *b);
+int					index_to_top(t_stack *element, t_stack *s);
+int					push_cost(t_stack *a, t_stack *b, t_stack *element,
+						t_stack *target);
+void				sorting(t_stack **a, t_stack **b);
+int					is_sorted(t_stack *a);
 
 // pushing cheapest element to top
-void					push_cheapest_element(stack **a, stack **b);
-void					elements_to_top(stack *cheapest, stack *target, stack **a, stack **b);
-void					rotate_ab(stack **a, stack **b, stack *cheapest, stack *target);
-void					reverse_rotate_ab(stack **a, stack **b, stack *cheapest, stack *target);
-void					rotate_a(stack **a, stack *target);
-void					reverse_rotate_a(stack **a, stack *target);
-void					rotate_b(stack **b, stack *cheapest);
-void 					reverse_rotate_b(stack **b, stack *cheapest);
+void				push_cheapest_element(t_stack **a, t_stack **b);
+void				elements_to_top(t_stack *cheapest, t_stack *target,
+						t_stack **a, t_stack **b);
+void				rotate_ab(t_stack **a, t_stack **b, t_stack *cheapest,
+						t_stack *target);
+void				reverse_rotate_ab(t_stack **a, t_stack **b,
+						t_stack *cheapest, t_stack *target);
+void				rotate_a(t_stack **a, t_stack *target);
+void				reverse_rotate_a(t_stack **a, t_stack *target);
+void				rotate_b(t_stack **b, t_stack *cheapest);
+void				reverse_rotate_b(t_stack **b, t_stack *cheapest);
 
 // Errors
-char					*repetition_error(stack **a, long number);
-int						error_msg();
+char				*repetition_error(t_stack **a, long number);
+int					error_msg(t_stack **a, t_stack **b);
 
 // to remove
-void					print_stack(stack *a);
-void					del_block(stack *a);
-void					stack_clear(stack **a);
+// void					print_t_stack(t_stack *a);
+void				t_stack_clear(t_stack **a);
 
 #endif

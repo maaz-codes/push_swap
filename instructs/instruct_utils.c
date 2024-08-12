@@ -6,16 +6,16 @@
 /*   By: maakhan <maakhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 15:28:20 by maakhan           #+#    #+#             */
-/*   Updated: 2024/08/12 15:28:30 by maakhan          ###   ########.fr       */
+/*   Updated: 2024/08/12 16:58:57 by maakhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../pushswap.h"
 
-void	swap(stack **a)
+void	swap(t_stack **a)
 {
-	stack	*first;
-	stack	*second;
+	t_stack	*first;
+	t_stack	*second;
 
 	if (*a == NULL || (*a)->next == NULL)
 		return ;
@@ -26,9 +26,9 @@ void	swap(stack **a)
 	*a = second;
 }
 
-void	push(stack **a, stack **b)
+void	push(t_stack **a, t_stack **b)
 {
-	stack	*temp;
+	t_stack	*temp;
 
 	if (*b == NULL)
 		return ;
@@ -46,10 +46,10 @@ void	push(stack **a, stack **b)
 	}
 }
 
-void	rotate(stack **a)
+void	rotate(t_stack **a)
 {
-	stack	*temp;
-	stack	*current;
+	t_stack	*temp;
+	t_stack	*current;
 
 	if (*a == NULL || (*a)->next == NULL)
 		return ;
@@ -62,10 +62,10 @@ void	rotate(stack **a)
 	temp->next = NULL;
 }
 
-void	reverse_rotate(stack **a)
+void	reverse_rotate(t_stack **a)
 {
-	stack	*prev;
-	stack	*current;
+	t_stack	*prev;
+	t_stack	*current;
 
 	if (*a == NULL || (*a)->next == NULL)
 		return ;

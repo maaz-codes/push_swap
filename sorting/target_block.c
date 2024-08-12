@@ -6,17 +6,17 @@
 /*   By: maakhan <maakhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 15:32:38 by maakhan           #+#    #+#             */
-/*   Updated: 2024/08/12 15:32:50 by maakhan          ###   ########.fr       */
+/*   Updated: 2024/08/12 17:00:07 by maakhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../pushswap.h"
 
-static stack	*target_block_for_a(stack *element, stack *a)
+static t_stack	*target_block_for_a(t_stack *element, t_stack *a)
 {
 	long	target_element;
-	stack	*temp;
-	stack	*target;
+	t_stack	*temp;
+	t_stack	*target;
 
 	target_element = (long)INT_MIN - 1;
 	target = a;
@@ -35,11 +35,11 @@ static stack	*target_block_for_a(stack *element, stack *a)
 	return (target);
 }
 
-static stack	*target_block_for_b(stack *element, stack *a)
+static t_stack	*target_block_for_b(t_stack *element, t_stack *a)
 {
 	long	target_element;
-	stack	*temp;
-	stack	*target;
+	t_stack	*temp;
+	t_stack	*target;
 
 	target_element = (long)INT_MAX + 1;
 	target = a;
@@ -58,13 +58,13 @@ static stack	*target_block_for_b(stack *element, stack *a)
 	return (target);
 }
 
-stack	*target_block(stack *element, stack *s, char stacks)
+t_stack	*target_block(t_stack *element, t_stack *s, char t_stacks)
 {
-	stack	*target;
+	t_stack	*target;
 
-	if (stacks == 'a')
+	if (t_stacks == 'a')
 		target = target_block_for_a(element, s);
-	else if (stacks == 'b')
+	else if (t_stacks == 'b')
 		target = target_block_for_b(element, s);
 	else
 		target = NULL;

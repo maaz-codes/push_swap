@@ -5,18 +5,18 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: maakhan <maakhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/12 15:33:33 by maakhan           #+#    #+#             */
-/*   Updated: 2024/08/12 15:34:35 by maakhan          ###   ########.fr       */
+/*   Created: 2024/08/12 17:01:12 by maakhan           #+#    #+#             */
+/*   Updated: 2024/08/12 17:01:18 by maakhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-stack	*stack_new(int number)
+t_stack	*t_stack_new(int number)
 {
-	stack	*block;
+	t_stack	*block;
 
-	block = malloc(sizeof(stack));
+	block = malloc(sizeof(t_stack));
 	if (!block)
 		return (NULL);
 	block->content = number;
@@ -25,9 +25,9 @@ stack	*stack_new(int number)
 	return (block);
 }
 
-stack	*last_block(stack *a)
+t_stack	*last_block(t_stack *a)
 {
-	stack	*block;
+	t_stack	*block;
 
 	block = a;
 	if (!block)
@@ -37,9 +37,9 @@ stack	*last_block(stack *a)
 	return (block);
 }
 
-void	stack_add(stack **a, stack *new_block)
+void	t_stack_add(t_stack **a, t_stack *new_block)
 {
-	stack	*block;
+	t_stack	*block;
 
 	if (!a)
 		return ;
@@ -56,10 +56,10 @@ void	stack_add(stack **a, stack *new_block)
 	}
 }
 
-int	stack_len(stack *a)
+int	t_stack_len(t_stack *a)
 {
 	int		len;
-	stack	*ptr;
+	t_stack	*ptr;
 
 	len = 0;
 	ptr = a;
@@ -71,7 +71,7 @@ int	stack_len(stack *a)
 	return (len);
 }
 
-char	*stack_init(stack **a, char **strings, int len)
+char	*t_stack_init(t_stack **a, char **strings, int len)
 {
 	int			i;
 	long long	number;
@@ -84,15 +84,15 @@ char	*stack_init(stack **a, char **strings, int len)
 			return (NULL);
 		if (!repetition_error(a, number))
 			return (NULL);
-		stack_add(a, stack_new(number));
+		t_stack_add(a, t_stack_new(number));
 		i++;
 	}
 	return ("Initialised");
 }
 
-// void	print_stack(stack *a)
+// void	print_t_stack(t_stack *a)
 // {
-// 	stack *block;
+// 	t_stack *block;
 
 // 	block = a;
 // 	while (block != NULL)

@@ -6,15 +6,15 @@
 /*   By: maakhan <maakhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 15:32:05 by maakhan           #+#    #+#             */
-/*   Updated: 2024/08/12 15:32:32 by maakhan          ###   ########.fr       */
+/*   Updated: 2024/08/12 17:00:03 by maakhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../pushswap.h"
 
-int	is_sorted(stack *a)
+int	is_sorted(t_stack *a)
 {
-	stack	*block;
+	t_stack	*block;
 
 	block = a;
 	while (block)
@@ -27,17 +27,17 @@ int	is_sorted(stack *a)
 	return (1);
 }
 
-void	push_elements_to_b(stack **b, stack **a)
+void	push_elements_to_b(t_stack **b, t_stack **a)
 {
-	while (stack_len(*a) > 3)
+	while (t_stack_len(*a) > 3)
 		pb(b, a);
 }
 
-void	tiny_sort(stack **a)
+void	tiny_sort(t_stack **a)
 {
 	int	max;
 
-	if (stack_len(*a) == 2)
+	if (t_stack_len(*a) == 2)
 	{
 		if ((*a)->content > (*a)->next->content)
 			sa(a);
@@ -54,29 +54,29 @@ void	tiny_sort(stack **a)
 	}
 }
 
-void	sorting(stack **a, stack **b)
+void	sorting(t_stack **a, t_stack **b)
 {
 	push_elements_to_b(b, a);
-	if (stack_len(*a) >= 2)
+	if (t_stack_len(*a) >= 2)
 	{
 		tiny_sort(a);
-		while (stack_len(*b) != 0)
+		while (t_stack_len(*b) != 0)
 			push_cheapest_element(a, b);
 		final_sort(a);
 	}
 }
 
-void	final_sort(stack **a)
+void	final_sort(t_stack **a)
 {
 	int		max;
 	int		mid_line;
 	int		index;
-	stack	*block;
+	t_stack	*block;
 
 	block = (*a);
 	max = find_max_block(block)->content;
-	mid_line = stack_len(block) / 2;
-	if (stack_len(block) % 2 != 0)
+	mid_line = t_stack_len(block) / 2;
+	if (t_stack_len(block) % 2 != 0)
 		mid_line++;
 	index = 1;
 	while (block->content != max)
@@ -88,6 +88,6 @@ void	final_sort(stack **a)
 		while (index-- > 0)
 			ra(a);
 	else
-		while ((stack_len(*a)) - index++ > 0)
+		while ((t_stack_len(*a)) - index++ > 0)
 			rra(a);
 }
