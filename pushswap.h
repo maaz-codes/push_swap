@@ -6,7 +6,7 @@
 /*   By: maakhan <maakhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 16:56:01 by maakhan           #+#    #+#             */
-/*   Updated: 2024/08/12 17:04:17 by maakhan          ###   ########.fr       */
+/*   Updated: 2024/08/12 17:59:51 by maakhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int					ft_word_count(const char *s, char sep);
 char				*ft_atol_modified(char *str, long long *number);
 char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strdup(const char *s1);
-char				*ft_strtrim(char const *s1, char const *set);
+// char				*ft_strtrim(char const *s1, char const *set);
 
 // t_stack_utils_
 t_stack				*t_stack_new(int number);
@@ -91,6 +91,7 @@ void				reverse_rotate_b(t_stack **b, t_stack *cheapest);
 // Errors
 char				*repetition_error(t_stack **a, long number);
 int					error_msg(t_stack **a, t_stack **b);
+int					space_only(char *s);
 
 // to remove
 // void					print_t_stack(t_stack *a);

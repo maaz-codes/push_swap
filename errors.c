@@ -6,11 +6,25 @@
 /*   By: maakhan <maakhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 15:32:58 by maakhan           #+#    #+#             */
-/*   Updated: 2024/08/12 17:00:39 by maakhan          ###   ########.fr       */
+/*   Updated: 2024/08/12 17:59:13 by maakhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
+
+int	space_only(char *s)
+{
+	int	i;
+
+	i = 0;
+	if (ft_strlen(s) == 0)
+		return (1);
+	while (s[i] == ' ' && s[i] != '\0')
+		i++;
+	if (i == ft_strlen(s))
+		return (1);
+	return (0);
+}
 
 int	error_msg(t_stack **a, t_stack **b)
 {

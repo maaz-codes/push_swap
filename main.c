@@ -6,7 +6,7 @@
 /*   By: maakhan <maakhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 15:33:13 by maakhan           #+#    #+#             */
-/*   Updated: 2024/08/12 17:14:03 by maakhan          ###   ########.fr       */
+/*   Updated: 2024/08/12 18:00:37 by maakhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ char	*arg_join(int argc, char **argv)
 	i = 1;
 	while (i < argc)
 	{
-		if (ft_strlen(ft_strtrim(argv[i], " ")) == 0)
+		if (space_only(argv[i]))
 		{
 			free(big_arg);
 			return (NULL);
