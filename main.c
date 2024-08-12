@@ -6,15 +6,15 @@
 /*   By: maakhan <maakhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 15:33:13 by maakhan           #+#    #+#             */
-/*   Updated: 2024/08/12 15:37:19 by maakhan          ###   ########.fr       */
+/*   Updated: 2024/08/12 17:14:03 by maakhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-void	stack_clear(stack **a)
+void	t_stack_clear(t_stack **a)
 {
-	stack	*block;
+	t_stack	*block;
 
 	while (*a != NULL)
 	{
@@ -49,6 +49,11 @@ char	*arg_join(int argc, char **argv)
 	i = 1;
 	while (i < argc)
 	{
+		if (ft_strlen(ft_strtrim(argv[i], " ")) == 0)
+		{
+			free(big_arg);
+			return (NULL);
+		}
 		temp_arg = big_arg;
 		big_arg = ft_strjoin(big_arg, argv[i]);
 		free(temp_arg);
@@ -60,7 +65,7 @@ char	*arg_join(int argc, char **argv)
 	return (big_arg);
 }
 
-char	*parsing(stack **a, int argc, char **argv)
+char	*parsing(t_stack **a, int argc, char **argv)
 {
 	char	**nums;
 	char	*big_arg;
@@ -71,7 +76,7 @@ char	*parsing(stack **a, int argc, char **argv)
 	nums = ft_split(big_arg, ' ');
 	if (!nums)
 		return (NULL);
-	if (!stack_init(a, nums, ft_word_count(big_arg, ' ')))
+	if (!t_stack_init(a, nums, ft_word_count(big_arg, ' ')))
 	{
 		free_strings(big_arg, nums);
 		return (NULL);
@@ -82,8 +87,8 @@ char	*parsing(stack **a, int argc, char **argv)
 
 int	main(int argc, char *argv[])
 {
-	stack	*a;
-	stack	*b;
+	t_stack	*a;
+	t_stack	*b;
 	char	**nums;
 	int		i;
 
@@ -98,11 +103,11 @@ int	main(int argc, char *argv[])
 			sorting(&a, &b);
 		else
 		{
-			stack_clear(&a);
-			stack_clear(&b);
+			t_stack_clear(&a);
+			t_stack_clear(&b);
 			return (0);
 		}
 	}
-	stack_clear(&a);
-	stack_clear(&b);
+	t_stack_clear(&a);
+	t_stack_clear(&b);
 }
