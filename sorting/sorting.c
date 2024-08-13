@@ -6,17 +6,19 @@
 /*   By: maakhan <maakhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 15:32:05 by maakhan           #+#    #+#             */
-/*   Updated: 2024/08/12 17:00:03 by maakhan          ###   ########.fr       */
+/*   Updated: 2024/08/13 12:09:12 by maakhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../pushswap.h"
 
-int	is_sorted(t_stack *a)
+int	is_sorted(t_stack *a, t_stack *b)
 {
 	t_stack	*block;
 
 	block = a;
+	if (b != NULL)
+		return (0);
 	while (block)
 	{
 		if (block->next)

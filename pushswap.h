@@ -6,7 +6,7 @@
 /*   By: maakhan <maakhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 16:56:01 by maakhan           #+#    #+#             */
-/*   Updated: 2024/08/12 18:07:57 by maakhan          ###   ########.fr       */
+/*   Updated: 2024/08/13 13:51:48 by maakhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <fcntl.h>
 
 typedef struct t_list
 {
@@ -33,6 +34,7 @@ int					ft_word_count(const char *s, char sep);
 char				*ft_atol_modified(char *str, long long *number);
 char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strdup(const char *s1);
+int	ft_memcmp(const void *s1, const void *s2, int n);
 
 // t_stack_utils_
 t_stack				*t_stack_new(int number);
@@ -72,7 +74,7 @@ int					index_to_top(t_stack *element, t_stack *s);
 int					push_cost(t_stack *a, t_stack *b, t_stack *element,
 						t_stack *target);
 void				sorting(t_stack **a, t_stack **b);
-int					is_sorted(t_stack *a);
+int					is_sorted(t_stack *a, t_stack *b);
 
 // pushing cheapest element to top
 void				push_cheapest_element(t_stack **a, t_stack **b);
@@ -91,6 +93,26 @@ void				reverse_rotate_b(t_stack **b, t_stack *cheapest);
 char				*repetition_error(t_stack **a, long number);
 int					error_msg(t_stack **a, t_stack **b);
 int					space_only(char *s);
+
+// parsing
+void	t_stack_clear(t_stack **a);
+void	free_strings(char *big_arg, char **nums);
+char	*arg_join(int argc, char **argv);
+char	*parsing(t_stack **a, int argc, char **argv);
+
+// bonus
+int					error_msg_bonus(t_stack **a, t_stack **b, char *instruct);
+void				sa_checker(t_stack **a);
+void				sb_checker(t_stack **b);
+void				ss_checker(t_stack **a, t_stack **b);
+void				pa_checker(t_stack **a, t_stack **b);
+void				pb_checker(t_stack **b, t_stack **a);
+void				ra_checker(t_stack **a);
+void				rb_checker(t_stack **b);
+void				rr_checker(t_stack **a, t_stack **b);
+void				rra_checker(t_stack **a);
+void				rrb_checker(t_stack **b);
+void				rrr_checker(t_stack **a, t_stack **b);
 
 // to remove
 // void					print_t_stack(t_stack *a);

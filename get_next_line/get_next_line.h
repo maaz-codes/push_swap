@@ -1,40 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maakhan <maakhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/12 15:33:13 by maakhan           #+#    #+#             */
-/*   Updated: 2024/08/13 12:09:25 by maakhan          ###   ########.fr       */
+/*   Created: 2024/07/07 23:22:30 by maakhan           #+#    #+#             */
+/*   Updated: 2024/08/13 12:26:29 by maakhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pushswap.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-int	main(int argc, char *argv[])
-{
-	t_stack	*a;
-	t_stack	*b;
-	char	**nums;
-	int		i;
+# include <limits.h>
+# include <stdlib.h>
+# include <unistd.h>
 
-	a = NULL;
-	b = NULL;
-	i = 1;
-	if (argc > 1) // ADD ARG_MAX
-	{
-		if (!parsing(&a, argc, argv))
-			return (error_msg(&a, &b));
-		if (!is_sorted(a, b))
-			sorting(&a, &b);
-		else
-		{
-			t_stack_clear(&a);
-			t_stack_clear(&b);
-			return (0);
-		}
-	}
-	t_stack_clear(&a);
-	t_stack_clear(&b);
-}
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 5
+# endif
+
+int 	ft_strlen(const char *str);
+char	*ft_strchr(const char *s, int c);
+char	*ft_strdup(const char *s1);
+char	*ft_strjoin(char const *s1, char const *s2);
+char	*get_next_line(int fd);
+
+#endif
