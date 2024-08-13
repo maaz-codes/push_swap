@@ -6,7 +6,7 @@
 /*   By: maakhan <maakhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 15:33:13 by maakhan           #+#    #+#             */
-/*   Updated: 2024/08/13 12:09:25 by maakhan          ###   ########.fr       */
+/*   Updated: 2024/08/13 15:56:33 by maakhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ int	main(int argc, char *argv[])
 {
 	t_stack	*a;
 	t_stack	*b;
-	char	**nums;
 	int		i;
 
 	a = NULL;

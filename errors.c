@@ -6,7 +6,7 @@
 /*   By: maakhan <maakhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 15:32:58 by maakhan           #+#    #+#             */
-/*   Updated: 2024/08/13 13:21:54 by maakhan          ###   ########.fr       */
+/*   Updated: 2024/08/13 15:25:40 by maakhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ int	error_msg(t_stack **a, t_stack **b)
 {
 	t_stack_clear(a);
 	t_stack_clear(b);
-	write(1, "Error\n", 6);
-	return (0);
+	write(2, "Error\n", 6);
+	exit(1);
 }
 
 char	*repetition_error(t_stack **a, long number)

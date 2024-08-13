@@ -6,7 +6,7 @@
 /*   By: maakhan <maakhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 23:22:14 by maakhan           #+#    #+#             */
-/*   Updated: 2024/08/13 13:25:39 by maakhan          ###   ########.fr       */
+/*   Updated: 2024/08/13 15:54:40 by maakhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static char	*reader(int fd, char *buff, char *str, int chars_read)
 		}
 		buff[chars_read] = '\0';
 		s = str;
-		str = ft_strjoin(str, buff);
+		str = ft_strjoin_gnl(str, buff);
 		if (!str)
 			return (ft_free(s, buff));
 		free(s);
@@ -88,7 +88,7 @@ static char	*update(char *str)
 		free(str);
 		return (NULL);
 	}
-	ptr = ft_strdup(str + i);
+	ptr = ft_strdup_gnl(str + i);
 	free(str);
 	if (!ptr)
 		return (NULL);
