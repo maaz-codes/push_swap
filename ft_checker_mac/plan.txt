@@ -1,0 +1,30 @@
+- - -[stack a, instructions -> checker -> OK / KO]- - -
+
+functions() :
+
+1.0 is_sorted() - done
+- checks whether stack is sorted or not.
+
+2.0 stack_init() - done
+- initialises the stack with input numbers.
+
+3.0 errors() - done
+- checks whether numbers and instructions are correctly input or not 
+  plus other error handling.
+
+3.1 extract_instructs() - pending
+- with help of GNL exact all instructions from input line.
+
+4.0 perform_instruc() - done
+- performs all the instructions given on stack a & b.
+
+5.0 is_correct() - done
+- checks whether the modified stack a is sorted or not & stack b is empty or not.
+
+6.0 clear_stack()
+- free & cleanup everything. 
+
+For parsing ig we will be needing some more functions like :
+- get_next_line - pending
+- ft_split - done
+- ft_atol - done
